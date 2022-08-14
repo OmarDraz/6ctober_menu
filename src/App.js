@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Header from './components/header/Header';
+import Categories from './pages/Categories';
+import './assets/index.css'
+import './assets/grid.css'
+import pattern from './assets/imgs/pattern.png'
+import { Provider } from 'react-redux';
+import store from './store'
+import Products from './pages/Products';
+import {useEffect, useState} from 'react'
+import useSound from 'use-sound'
+import backSound from './assets/audio/back.mp3'
 
 function App() {
+  const [backSoundPlay] = useSound(backSound)
+  useEffect(() => {
+    backSoundPlay()
+  })
+
   return (
+    <Provider store={store}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <img alt="pattern" src={pattern} className="pattern" />
+      <Router>
+        <Header />
+        <div style={{ marginTop: 350 }} className="flex__center">
+        <Routes>
+          <Route path="/" end element={<Categories />} />
+          <Route path="/products/:id" end element={<Products />} />
+        </Routes>
+        </div>
+      </Router>
     </div>
+    </Provider>
   );
 }
 
