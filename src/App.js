@@ -7,7 +7,7 @@ import pattern from './assets/imgs/pattern.png'
 import { Provider } from 'react-redux';
 import store from './store'
 import Products from './pages/Products';
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 import useSound from 'use-sound'
 import backSound from './assets/audio/back.mp3'
 

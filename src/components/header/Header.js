@@ -7,13 +7,9 @@ import './header.css'
 import { level } from '../../actions'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 import Dropdown from '../dropdown/Dropdown'
-import Cookie from 'js-cookie'
-import {MdDashboard} from 'react-icons/md'
-import {useNavigate} from 'react-router-dom'
 
 const Header = () => {
   const lev = useSelector(state => state)
-  const navigate = useNavigate()
   const dispatch = useDispatch()
   const langs = [
     {
@@ -40,13 +36,6 @@ const Header = () => {
         <motion.h2  style={{ position: 'absolute' }} transition={{ delay: 0.3 }} animate={{ y: [-100, 130, 120] }}>{lev === 1 ? 'MENU' : 'القائمة'}</motion.h2>
         <motion.img initial={{ y: -100 }} style={{ position: 'absolute' }} src={cup} alt="logo" transition={{ delay: 0.2, repeat: Infinity, duration: 5 }} animate={{ y: [ 240, 260, 240] }}/>
     </header>
-    {
-      Cookie.get('role') === 'admin' &&     
-      <div style={{ width: 200, position: 'fixed', right: 10, top: 10, display: 'flex', justifyContent: 'flex-end' }}>
-          <MdDashboard style={{fontSize: 24, color: '#AA986F', cursor: 'pointer'}} onClick={() => navigate('/')} />
-      </div>
-    }
-
     </>
   )
 }
