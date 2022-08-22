@@ -1,0 +1,16 @@
+/* @media only screen and (max-width: 900px){
+    .ellipse{
+        width: 100% !important;
+    }
+} */
+
+.ellipse{
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    background: url(../../assets/imgs/Ellipse.svg) no-repeat bottom;
+}
+
+header{
+    height: 10vh;
+}
